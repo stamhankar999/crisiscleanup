@@ -4,20 +4,21 @@ import Datatable from './components/datatable/Datatable';
 import LegacySitesDetailRow from './components/datatable/detailrow/LegacySitesDetailRow';
 import MysitesDetailRow from './components/datatable/detailrow/MysitesDetailRow';
 import UsersDetailRow from './components/datatable/detailrow/UsersDetailRow';
+
 Vue.component('mysites-detail-row', MysitesDetailRow);
 Vue.component('users-detail-row', UsersDetailRow);
 Vue.component('legacy-sites-detail-row', LegacySitesDetailRow);
 
-document.onreadystatechange = function () {
+document.onreadystatechange = () => {
   if (document.readyState === 'complete') {
-    var myworksiteTableVue = document.getElementById("myworksite-table");
-    if (typeof(myworksiteTableVue) != 'undefined' && myworksiteTableVue != null) {
+    const myworksiteTableVue = document.getElementById('myworksite-table');
+    if (typeof (myworksiteTableVue) !== 'undefined' && myworksiteTableVue != null) {
       new Vue({
         el: '#myworksite-table',
         components: {
-          Datatable
+          Datatable,
         },
-        data () {
+        data() {
           return {
 
             fields: [
@@ -34,7 +35,7 @@ document.onreadystatechange = function () {
               },
               */
               {
-                title: "Case Number",
+                title: 'Case Number',
                 name: 'case_number',
                 sortField: 'case_number',
               },
@@ -71,33 +72,33 @@ document.onreadystatechange = function () {
               {
                 name: '__slot:actions',
                 title: 'Actions',
-              }
+              },
             ],
             sortOrder: [
               {
                 field: 'case_number',
                 sortField: 'case_number',
-                direction: 'asc'
-              }
-            ]
-          }
+                direction: 'asc',
+              },
+            ],
+          };
         },
         methods: {
-          onAction: function (action, data, index) {
-            window.location.href = "/worker/incident/" + data.legacy_event_id + "/edit/" + data.id;
+          onAction(action, data) {
+            window.location.href = `/worker/incident/${data.legacy_event_id}/edit/${data.id}`;
           },
-        }
+        },
       });
     }
 
-    var usersTableVue = document.getElementById("users-table");
-    if (typeof(usersTableVue) != 'undefined' && usersTableVue != null) {
+    const usersTableVue = document.getElementById('users-table');
+    if (typeof (usersTableVue) !== 'undefined' && usersTableVue != null) {
       new Vue({
         el: '#users-table',
         components: {
-          Datatable
+          Datatable,
         },
-        data () {
+        data() {
           return {
 
             fields: [
@@ -114,7 +115,7 @@ document.onreadystatechange = function () {
               },
               */
               {
-                title: "Email",
+                title: 'Email',
                 name: 'email',
                 sortField: 'email',
               },
@@ -131,22 +132,22 @@ document.onreadystatechange = function () {
               {
                 name: '__slot:actions',
                 title: 'Actions',
-              }
+              },
             ],
             sortOrder: [
               {
                 field: 'name',
                 sortField: 'name',
-                direction: 'asc'
-              }
-            ]
-          }
+                direction: 'asc',
+              },
+            ],
+          };
         },
         methods: {
-          onAction: function (action, data, index) {
-            window.location.href = "/admin/users/" + data.id + "/edit";
+          onAction(action, data) {
+            window.location.href = `/admin/users/${data.id}/edit`;
           },
-        }
+        },
       });
     }
   }

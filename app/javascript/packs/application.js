@@ -11,18 +11,19 @@ import Vue from 'vue';
 import VueResource from 'vue-resource';
 import Raven from 'raven-js';
 import RavenVue from 'raven-js/plugins/vue';
+
 Raven.config('https://10c81ccdb4ca40d39a1fafa02154e6c7@sentry.io/212434').addPlugin(RavenVue, Vue).install();
 
 Vue.use(VueResource);
 
-import 'dashboard'
-import 'history'
-import 'datatable'
+import 'dashboard';
+import 'history';
+import 'datatable';
 
 // Map
-import 'legacy/models/cluster'
-import 'legacy/models'
-import 'legacy/models/scripts'
+import 'legacy/models/cluster';
+import 'legacy/models';
+import 'legacy/models/scripts';
 
 // Other
 import 'legacy/other/incident_chooser';

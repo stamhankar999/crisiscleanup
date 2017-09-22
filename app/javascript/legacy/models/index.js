@@ -1,9 +1,10 @@
+/* eslint-disable no-use-before-define */
 import Map from './map';
 import Site from './marker';
 import Form from './form';
-import {Filter, Filters} from './filter'
+import { Filter, Filters } from './filter';
 
-var CCMap = CCMap || {};
+const CCMap = CCMap || {};
 
 CCMap.Map = Map;
 CCMap.Site = Site;
